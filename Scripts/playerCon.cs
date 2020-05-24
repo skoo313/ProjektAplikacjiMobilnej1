@@ -33,7 +33,7 @@ public class playerCon : MonoBehaviour
             transform.eulerAngles = Vector3.up * Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
         }
   
-        bool running = GameObject.Find("Button").GetComponent<runButton>().buttonPressed;
+        bool running = GameObject.Find("RunButton").GetComponent<runButton>().buttonPressed;
         float speed = ((running) ? run_speed : walk_speed) * inputDir.magnitude;
 
         transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);

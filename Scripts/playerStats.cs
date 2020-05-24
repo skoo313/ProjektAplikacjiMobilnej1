@@ -8,12 +8,14 @@ public class playerStats : MonoBehaviour
     public int HP;
 
     public HealthBar healthBar;
-
+    GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         HP = maxHP;
         healthBar.ResetHP(maxHP);
+
+        gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -26,5 +28,8 @@ public class playerStats : MonoBehaviour
     {
         HP -= damage;
         healthBar.SetHP(HP);
+
+        if (HP <= 0)
+            gameManager.GameOver();
     }
 }
